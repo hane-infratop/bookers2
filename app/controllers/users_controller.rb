@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   end
 
   def show
+    @user = User.find(current_user.id)
+    @books = @user.books
   end
 
   def edit
