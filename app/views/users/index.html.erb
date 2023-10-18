@@ -1,1 +1,23 @@
-user一覧ページ
+<div class="container px-5">
+    <div class="row">
+
+        <%= render 'users/user', user: @user %>
+        <div class="col-md-8 offset-1">
+            <h2>Users</h2>
+            <table class="table table-hover">
+                <tr>
+                    <th>image</th>
+                    <th>name</th>
+                    <th></th>
+                </tr>
+                <%= @users.each do |user| %>
+                <tr>
+                    <td><%= image_tag user.get_profile_image(100,100) %></td>
+                    <td><span><% user.name %></span></td>
+                    <td><span><%= link_to "Show", user_path(user.id), method: :get %></span></td>
+                </tr>
+                <% end %>
+            </table>
+        </div>
+    </div>
+</div>
